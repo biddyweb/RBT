@@ -20,6 +20,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+            $client = new SoapClient('http://api.radioreference.com/soap2/?wsdl&v=latest');
+
+            $countries = $client->getCountryList();
+            print_r($countries);
 		$this->load->view('welcome_message');
 	}
 }
