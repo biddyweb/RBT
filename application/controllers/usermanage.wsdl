@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://usermanage.ivas.huawei.com" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://usermanage.ivas.huawei.com" xmlns:intf="http://usermanage.ivas.huawei.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns2="http://event.usermanage.ivas.huawei.com" xmlns:tns3="http://ivas.huawei.com" xmlns:tns4="http://response.usermanage.ivas.huawei.com" xmlns:tns5="http://info.ivas.huawei.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema targetNamespace="http://ivas.huawei.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="BaseEvt">
+    <sequence>
+     <element name="portalAccount" nillable="true" type="xsd:string"/>
+     <element name="portalPwd" nillable="true" type="xsd:string"/>
+     <element name="portalType" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="BaseUpdateEvt">
+    <complexContent>
+     <extension base="tns3:BaseEvt">
+      <sequence>
+       <element name="moduleCode" nillable="true" type="xsd:string"/>
+       <element name="role" nillable="true" type="xsd:string"/>
+       <element name="roleCode" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <complexType name="Response">
+    <sequence>
+     <element name="eventClassName" nillable="true" type="xsd:string"/>
+     <element name="operationID" type="xsd:long"/>
+     <element name="resultCode" type="xsd:int"/>
+     <element name="resultInfo" nillable="true" type="xsd:string"/>
+     <element name="returnCode" nillable="true" type="xsd:string"/>
+     <element name="transactionID" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://usermanage.ivas.huawei.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns5_EasyDownloadInfo">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns5:EasyDownloadInfo[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://event.usermanage.ivas.huawei.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="EasyDownloadEvt">
+    <complexContent>
+     <extension base="tns3:BaseUpdateEvt">
+      <sequence>
+       <element name="contentMicroChargeFlag" nillable="true" type="xsd:string"/>
+       <element name="keyword" nillable="true" type="xsd:string"/>
+       <element name="languageID" nillable="true" type="xsd:string"/>
+       <element name="password" nillable="true" type="xsd:string"/>
+       <element name="phoneNumber" nillable="true" type="xsd:string"/>
+       <element name="reorderMode" nillable="true" type="xsd:string"/>
+       <element name="resourceCode" nillable="true" type="impl:ArrayOf_xsd_string"/>
+       <element name="resourceID" nillable="true" type="impl:ArrayOf_xsd_string"/>
+       <element name="resourceServiceType" nillable="true" type="xsd:string"/>
+       <element name="resourceType" nillable="true" type="xsd:string"/>
+       <element name="serviceID" nillable="true" type="xsd:string"/>
+       <element name="tradeMark" nillable="true" type="xsd:string"/>
+       <element name="transactionID" nillable="true" type="xsd:string"/>
+       <element name="userType" nillable="true" type="xsd:string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://info.ivas.huawei.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="EasyDownloadInfo">
+    <sequence>
+     <element name="resourceCode" nillable="true" type="xsd:string"/>
+     <element name="resourceID" nillable="true" type="xsd:string"/>
+     <element name="returnCode" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://response.usermanage.ivas.huawei.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="EasyDownloadResp">
+    <complexContent>
+     <extension base="tns3:Response">
+      <sequence>
+       <element name="failedResources" nillable="true" type="impl:ArrayOf_tns5_EasyDownloadInfo"/>
+       <element name="toneTransactionID" nillable="true" type="impl:ArrayOf_xsd_string"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <message name="easyDownloadResponse">
+
+      <part name="easyDownloadReturn" type="tns4:EasyDownloadResp"/>
+
+   </message>
+
+   <message name="easyDownloadRequest">
+
+      <part name="event" type="tns2:EasyDownloadEvt"/>
+
+   </message>
+
+   <portType name="UserManage">
+
+      <operation name="easyDownload" parameterOrder="event">
+
+         <input message="impl:easyDownloadRequest" name="easyDownloadRequest"/>
+
+         <output message="impl:easyDownloadResponse" name="easyDownloadResponse"/>
+
+      </operation>
+
+   </portType>
+
+   <binding name="UserManageSoapBinding" type="impl:UserManage">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <operation name="easyDownload">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <input name="easyDownloadRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://usermanage.ivas.huawei.com" use="encoded"/>
+
+         </input>
+
+         <output name="easyDownloadResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://usermanage.ivas.huawei.com" use="encoded"/>
+
+         </output>
+
+      </operation>
+
+   </binding>
+
+   <service name="UserManageService">
+
+      <port binding="impl:UserManageSoapBinding" name="UserManage">
+
+         <wsdlsoap:address location="http://10.18.8.226:8080/jboss-net/services/UserManage"/>
+
+      </port>
+
+   </service>
+
+</definitions>

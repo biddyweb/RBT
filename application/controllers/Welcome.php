@@ -20,9 +20,13 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-            $client = new SoapClient('http://api.radioreference.com/soap2/?wsdl&v=latest');
+            //$client = new SoapClient('http://api.radioreference.com/soap2/?wsdl&v=latest');
+            $client = new SoapClient("usermanage.wsdl", array('proxy_host'     => "10.71.62.14",
+                                            'proxy_port'     => 28080,
+                                            'proxy_login'    => "testact",
+                                            'proxy_password' => "testact"));
 
-            $countries = $client->getCountryList();
+            $countries = $client->EasyDownloadEvt();
             print_r($countries);
 		$this->load->view('welcome_message');
 	}
