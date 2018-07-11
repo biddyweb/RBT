@@ -28,7 +28,7 @@ class Welcome extends CI_Controller {
 
             $clientresp1 = $client1->__getFunctions();
             print_r($clientresp1);
-            $client2 = new SoapClient("tonemanage.wsdl", array('proxy_host'     => "10.71.62.14",
+            $client2 = new SoapClient("toneprovide.wsdl", array('proxy_host'     => "10.71.62.14",
                                             'proxy_port'     => 28080,
                                             'proxy_login'    => "testact",
                                             'proxy_password' => "testact"));
