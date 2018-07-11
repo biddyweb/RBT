@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
                                             'proxy_login'    => "testact",
                                             'proxy_password' => "testact"));
 
-            $countries = $client->EasyDownloadEvt();
+            $countries = $client->__getFunctions();
             print_r($countries);
 		$this->load->view('welcome_message');
 	}
