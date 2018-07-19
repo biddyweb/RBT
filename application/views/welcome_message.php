@@ -2,88 +2,126 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-	<meta charset="utf-8">
-	<title>9Mobile RBT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
 
-	<style type="text/css">
+    <title>9jatunes - Home of Nigeria Ring Back Tunes</title>
 
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
+    <!-- Bootstrap core CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 
-	body {
-		background-color: #fff;
-		margin: 40px;
-		font: 13px/20px normal Helvetica, Arial, sans-serif;
-		color: #4F5155;
-	}
+    <style type="text/css">
+      body {
+        padding-top: 5rem;
+      }
+      .main-content{
+        padding: 3rem 1.5rem;
+        text-align: center;
+      }
 
-	a {
-		color: #003399;
-		background-color: transparent;
-		font-weight: normal;
-	}
+    </style>
+  </head>
+  <body>
 
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
-	}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">9jatunes.com</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-	code {
-		font-family: Consolas, Monaco, Courier New, Courier, monospace;
-		font-size: 12px;
-		background-color: #f9f9f9;
-		border: 1px solid #D0D0D0;
-		color: #002166;
-		display: block;
-		margin: 14px 0 14px 0;
-		padding: 12px 10px 12px 10px;
-	}
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">MTN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">GLO</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search for Tunes</button>
+        </form>
+      </div>
+    </nav>
 
-	#body {
-		margin: 0 15px 0 15px;
-	}
+    <main role="main" class="container-fluid">
+      <div class="main-content">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <p class="lead">Subscribe to your favourite tunes...</p>
+            <table class="table table-hover table-dark">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Tune Name</th>
+                  <th scope="col">Tune Author</th>
+                  <th scope="col">Genre</th>
+                  <th scope="col">Listen</th>
+                  <th scope="col">Subscribe</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Arise and Shine</td>
+                  <td>Coignsoft</td>
+                  <td>Meditation</td>
+                  <td>{{Play Button}}</td>
+                  <td>{{Subscribe Button}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Yes I Can</td>
+                  <td>Coignsoft</td>
+                  <td>Motivation</td>
+                  <td>{{Play Button}}</td>
+                  <td>{{Subscribe Button}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>ABCDERF....</td>
+                  <td>Tope Alabi</td>
+                  <td>Inspiration</td>
+                  <td>{{Play Button}}</td>
+                  <td>{{Subscribe Button}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>If</td>
+                  <td>Davido</td>
+                  <td>Afro Pop</td>
+                  <td>{{Play Button}}</td>
+                  <td>{{Subscribe Button}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-	p.footer {
-		text-align: right;
-		font-size: 11px;
-		border-top: 1px solid #D0D0D0;
-		line-height: 32px;
-		padding: 0 10px 0 10px;
-		margin: 20px 0 0 0;
-	}
+    </main><!-- /.container -->
 
-	#container {
-		margin: 10px;
-		border: 1px solid #D0D0D0;
-		box-shadow: 0 0 8px #D0D0D0;
-	}
-	</style>
-</head>
-<body>
+    <!-- <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Copyright - 2018 Coignsoft</p>
+      </div>
+    </footer> -->
 
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/Welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
-
-</body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="static/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="static/js/jquery-slim.min.js"><\/script>')</script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+  </body>
 </html>
